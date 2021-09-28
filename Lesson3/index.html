@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+        var i = 0,
+            list = [];
+
+        while (i <= 100) {
+            list.push(i);
+            i++;
+        }
+        document.write('' + list.join(' '));
+        // 2. С этого урока начинаем работать с функционалом интернет-магазина. Предположим, есть сущность корзины. Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.
+        var price1 = parseInt(Math.random() * 900 + 100);
+        var price2 = parseInt(Math.random() * 900 + 100);
+        var price3 = parseInt(Math.random() * 900 + 100);
+        var total = price1 + price2 + price3;
+        document.write('<br>Сумма товаров по цене ' + price1 + ', ' + price2 + ', ' + price3 + ' равна ' + total);
+        // 3. Товары в корзине хранятся в массиве. Задачи:
+        // a) Организовать такой массив для хранения товаров в корзине;
+        // b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+        function countBasketPrice(buy) {
+            var sum = 0
+            for (var i in buy) {
+                sum += parseInt(buy[i]);
+            }
+            return sum;
+        }
+        purchases = [];
+        for (var i = 0; i < 3; i++) {
+            purchases.push((Math.random() * 900 + 100).toFixed(0));
+        }
+        document.write('<br> Сумма покупки 3 товаров по цене ' + purchases.join(' руб, ') + ' равна ' +
+            countBasketPrice(purchases) + ' рублей<br>');
+        // 4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно так:
+        // for(…){// здесь пусто}
+        for (var i = 0; i <= 9; document.write(i++));
+        // 5. *Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:
+        // x
+        // xx
+        // xxx
+        // xxxx
+        // xxxxx
+        for (var i = 1; i <= 20; i++) {
+            j = i;
+            var star = '';
+            for (var n = 0; n < j; n++) {
+                star += 'x'
+            }
+            console.log(star);
+        }
+    </script>
+</body>
+
+</html>
