@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid grey;
+            text-align: center;
+            font-size: 30px;
+
+        }
+
+        tr:first-child {
+            border: 1px solid;
+            transform: scaleY(-1);
+        }
+
+        tr:last-child {
+            border: 1px solid;
+
+        }
+
+        td:first-child {
+            border-right: 1px solid;
+
+        }
+
+        td:last-child {
+            border-left: 1px solid;
+            transform: scaleY(-1);
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="chess"></div>
+    <script>
+        var letters = 'abcdefgh';
+        var chess = document.querySelector(".chess");
+        var table = document.createElement("table");
+
+        for (var i = 0; i < 10; i++) {
+            var tr = document.createElement("tr");
+
+            table.append(tr);
+            for (var j = 0; j < 10; j++) {
+                var td = document.createElement("td")
+                td.setAttribute("height", 60);
+                td.setAttribute("width", 60)
+                if (i != 0 && i != 9) {
+                    if (j != 0 && j != 9) {
+                        if (i % 2 == 1 && j % 2 == 0) {
+                            td.setAttribute("bgcolor", "gray");
+                        }
+                        if (i % 2 == 0 && j % 2 == 1) {
+                            td.setAttribute("bgcolor", "gray");
+                        }
+                    }
+                }
+                if ((i == 0 || i == 9) && (j > 0 && j < 9)) {
+                    td.innerText = letters[j - 1];
+                }
+                if ((j == 0 || j == 9) && (i > 0 && i < 9)) {
+                    td.innerText = 9 - i;
+                }
+                tr.append(td);
+            }
+        }
+        for (var i = 1; i < 9; i++) {
+            table.children[2].children[i].innerHTML = "&#9823";
+        }
+        for (var i = 1; i < 9; i++) {
+            table.children[7].children[i].innerHTML = "&#9817";
+        }
+        table.children[1].children[1].innerHTML = "&#9820;";
+        table.children[1].children[2].innerHTML = "&#9822;";
+        table.children[1].children[3].innerHTML = "&#9821;";
+        table.children[1].children[4].innerHTML = "&#9819;";
+        table.children[1].children[5].innerHTML = "&#9818;";
+        table.children[1].children[6].innerHTML = "&#9821;";
+        table.children[1].children[7].innerHTML = "&#9822;";
+        table.children[1].children[8].innerHTML = "&#9820;";
+        table.children[8].children[1].innerHTML = "&#9814;";
+        table.children[8].children[2].innerHTML = "&#9816;";
+        table.children[8].children[3].innerHTML = "&#9815;";
+        table.children[8].children[4].innerHTML = "&#9813;";
+        table.children[8].children[5].innerHTML = "&#9812;";
+        table.children[8].children[6].innerHTML = "&#9815;";
+        table.children[8].children[7].innerHTML = "&#9816;";
+        table.children[8].children[8].innerHTML = "&#9814;";
+        document.querySelector(".chess").append(table)
+    </script>
+</body>
+
+</html>
